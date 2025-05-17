@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatter | Home</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <h1>Chatter</h1>
+      </div>
+      <div class="navbar-menu">
+        <button id="theme-toggle" class="btn-icon">
+          <i class="fas fa-sun"></i>
+        </button>
+        <div class="dropdown">
+          <button class="dropdown-trigger">
+            <div class="avatar-container small">
+              <img id="nav-avatar" src="assets/default-avatar.png" alt="Profile">
+            </div>
+          </button>
+          <div class="dropdown-menu">
+            <a href="profile.html">Profile</a>
+            <a href="#" id="logout-btn">Logout</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <div class="feed-header">
+          <h2>Home Feed</h2>
+          <a href="create.html" class="btn-primary">
+            <i class="fas fa-plus"></i> New Post
+          </a>
+        </div>
+        
+        <div id="posts-container" class="posts-container">
+          <!-- Posts will be loaded here dynamically -->
+          <div class="loading-indicator">
+            <div class="spinner"></div>
+            <p>Loading posts...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notifications Panel (Hidden by default) -->
+      <div id="notifications-panel" class="notifications-panel">
+        <div class="notifications-header">
+          <h3>Notifications</h3>
+          <div>
+            <button id="mark-all-read" class="btn-text">Mark all as read</button>
+            <button id="clear-all-notifications" class="btn-text">Clear all</button>
+            <button id="close-notifications" class="btn-icon">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <div id="notifications-list" class="notifications-list">
+          <!-- Notifications will be loaded here dynamically -->
+        </div>
+      </div>
+    </main>
+
+    <!-- Floating Notification Button -->
+    <button id="notifications-btn" class="notifications-toggle">
+      <i class="fas fa-bell"></i>
+      <span id="notification-count" class="notification-badge hidden">0</span>
+    </button>
+
+    <!-- Modals -->
+    <div id="comments-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Comments</h3>
+          <button class="modal-close btn-icon">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="comments-container" class="comments-container">
+            <!-- Comments will be dynamically loaded here -->
+          </div>
+          <div class="comment-form">
+            <div class="avatar-container small">
+              <img id="comment-avatar" src="assets/default-avatar.png" alt="Profile">
+            </div>
+            <div class="comment-input-container">
+              <input type="text" id="comment-input" placeholder="Add a comment...">
+              <button id="post-comment" class="btn-primary">Post</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="users-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="users-modal-title">Users</h3>
+          <button class="modal-close btn-icon">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="users-container" class="users-container">
+            <!-- Users will be dynamically loaded here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>
